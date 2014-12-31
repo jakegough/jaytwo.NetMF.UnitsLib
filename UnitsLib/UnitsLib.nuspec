@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>jaytwo.NetMF.UnitsLib</id>
+    <version>$version$</version>
+    <description>.NET Micro Framework library to simplify handling unit (length, weight, volume, energy, etc.)</description>
+    <authors>Jake Gough</authors>
+    <projectUrl>https://github.com/jakegough/jaytwo.NetMF.UnitsLib/</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/jakegough/jaytwo.NetMF.UnitsLib/master/LICENSE</licenseUrl>
+    <tags>jakegough jaytwo micro netmf units unitslib</tags>
+  </metadata>
+  <files>
+   <file src="bin\Release\le\jaytwo.micro.UnitsLib.p*" target="lib/netmf42/le/" />
+   <file src="bin\Release\be\jaytwo.micro.UnitsLib.p*" target="lib/netmf42/be/" />
+  </files>
+</package>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyName>jaytwo.NetMF.UnitsLib</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>jaytwo.NetMF.UnitsLib</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B1C0223-4DE6-4E35-A1FC-1D412C05BDBF}</ProjectGuid>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <ItemGroup>
+    <Compile Include="DoubleMetricPrefixExtensions.cs" />
+    <Compile Include="DoubleMetricPrefixUtility.cs" />
+    <Compile Include="IOverloadedMeasurement.cs" />
+    <Compile Include="MeasurementHelpers.cs" />
+    <Compile Include="OverloadedMeasurementBase.cs" />
+    <Compile Include="AreaMeasurement.cs" />
+    <Compile Include="CurrentMeasurement.cs" />
+    <Compile Include="ElectricalPowerMeasurement.cs" />
+    <Compile Include="FrequencyMeasurement.cs" />
+    <Compile Include="LengthMeasurement.cs" />
+    <Compile Include="MechanicalEnergyMeasurement.cs" />
+    <Compile Include="PressureMeasurement.cs" />
+    <Compile Include="SpeedMeasurement.cs" />
+    <Compile Include="TemperatureMeasurement.cs" />
+    <Compile Include="VoltageMeasurement.cs" />
+    <Compile Include="VolumeMeasurement.cs" />
+    <Compile Include="WeightMeasurement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.IO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnitsLib.nuspec" />
+  </ItemGroup>
+</Project>
