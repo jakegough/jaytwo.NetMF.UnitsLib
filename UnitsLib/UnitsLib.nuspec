@@ -10,7 +10,17 @@
     <tags>jakegough jaytwo micro netmf units unitslib</tags>
   </metadata>
   <files>
-   <file src="bin\Release\le\jaytwo.micro.UnitsLib.p*" target="lib/netmf42/le/" />
-   <file src="bin\Release\be\jaytwo.micro.UnitsLib.p*" target="lib/netmf42/be/" />
+   <file src="bin\nuget\net30\$id$.*" target="lib\net30\" />
+   <file src="bin\nuget\net35\$id$.*" target="lib\net35\" />
+   <file src="bin\nuget\net40\$id$.*" target="lib\net40\" exclude="$id$.dll" />
+   <file src="bin\nuget\net45\$id$.*" target="lib\net45\" />
+   <file src="bin\nuget\netmf30\$id$.*" target="lib/netmf30/" />
+   <file src="bin\nuget\netmf40\$id$.*" target="lib/netmf40/" />
+   <file src="bin\nuget\netmf41\$id$.*" target="lib/netmf41/" />
+   <file src="bin\nuget\netmf41\le\$id$.*" target="lib/netmf41/le/" />
+   <file src="bin\nuget\netmf41\be\$id$.*" target="lib/netmf41/be/" />
+   <file src="bin\nuget\netmf42\$id$.*" target="lib/netmf42/" />
+   <file src="bin\nuget\netmf42\le\$id$.*" target="lib/netmf42/le/" />
+   <file src="bin\nuget\netmf42\be\$id$.*" target="lib/netmf42/be/" />
   </files>
 </package>

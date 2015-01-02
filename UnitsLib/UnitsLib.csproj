@@ -1,17 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>jaytwo.NetMF.UnitsLib</AssemblyName>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <TargetFrameworkPlatform Condition=" '$(TargetFrameworkPlatform)' == '' ">NetMF</TargetFrameworkPlatform>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectGuid>{2B1C0223-4DE6-4E35-A1FC-1D412C05BDBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>jaytwo.NetMF.UnitsLib</RootNamespace>
+    <AssemblyName>jaytwo.NetMF.UnitsLib</AssemblyName>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
     <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2B1C0223-4DE6-4E35-A1FC-1D412C05BDBF}</ProjectGuid>
-    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
     <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
     <TargetFrameworkProfile />
   </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -29,7 +35,71 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  
+  <PropertyGroup Condition=" $(Configuration.Contains('Nuget')) ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <Target Name="Nuget-Clean" DependsOnTargets="Clean">
+    <RemoveDir Directories="bin\nuget" />
+  </Target>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget NetMF 3.0|AnyCPU' ">
+    <TargetFrameworkPlatform>NetMF</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\netmf30\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget NetMF 4.0|AnyCPU' ">
+    <TargetFrameworkPlatform>NetMF</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\netmf40\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget NetMF 4.1|AnyCPU' ">
+    <TargetFrameworkPlatform>NetMF</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v4.1</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\netmf41\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget NetMF 4.2|AnyCPU' ">
+    <TargetFrameworkPlatform>NetMF</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\netmf42\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFrameworkPlatform)' == 'NetMF'">
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f}</ProjectTypeGuids>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 3.0|AnyCPU' ">
+    <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\net30\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 3.5|AnyCPU' ">
+    <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\net35\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 4.0|AnyCPU' ">
+    <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\net40\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 4.5|AnyCPU' ">
+    <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <OutputPath>bin\nuget\net45\</OutputPath>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(TargetFrameworkPlatform)' == 'Net' ">
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+          Condition="'$(TargetFrameworkPlatform)' == 'Net' And Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />          
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" 
+          Condition="'$(TargetFrameworkPlatform)' == 'Net'" />
+  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" 
+          Condition="'$(TargetFrameworkPlatform)' == 'NetMF' " />
+  
   <ItemGroup>
     <Compile Include="DoubleMetricPrefixExtensions.cs" />
     <Compile Include="DoubleMetricPrefixUtility.cs" />
