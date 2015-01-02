@@ -65,7 +65,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double Yards { get { return (Feet / FEET_PER_YARD); } }
 		public double Miles { get { return (Feet / FEET_PER_MILE); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static LengthMeasurement None = new LengthMeasurement(double.NaN);
 #else
 		public static LengthMeasurement None = new LengthMeasurement();
@@ -103,7 +103,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new LengthMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static LengthMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? LengthMeasurement.None;

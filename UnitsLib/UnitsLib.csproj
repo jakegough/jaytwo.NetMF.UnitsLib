@@ -71,21 +71,25 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 3.0|AnyCPU' ">
     <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <DefineConstants>$(DefineConstants);NET30</DefineConstants>
     <OutputPath>bin\nuget\net30\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 3.5|AnyCPU' ">
     <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <DefineConstants>$(DefineConstants);NET35</DefineConstants>
     <OutputPath>bin\nuget\net35\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 4.0|AnyCPU' ">
     <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefineConstants>$(DefineConstants);NET40</DefineConstants>
     <OutputPath>bin\nuget\net40\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Nuget Net 4.5|AnyCPU' ">
     <TargetFrameworkPlatform>Net</TargetFrameworkPlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
     <OutputPath>bin\nuget\net45\</OutputPath>
   </PropertyGroup>
     <PropertyGroup Condition="'$(TargetFrameworkPlatform)' == 'Net' ">

@@ -54,7 +54,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return VoltageMeasurement.FromVolts(volts);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static ElectricalPowerMeasurement None = new ElectricalPowerMeasurement(double.NaN);
 #else
 		public static ElectricalPowerMeasurement None = new ElectricalPowerMeasurement();
@@ -92,7 +92,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new ElectricalPowerMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static ElectricalPowerMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? ElectricalPowerMeasurement.None;

@@ -68,7 +68,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double Fahrenheit { get { return CelsiusToFarenheit(Celsius); } }
 		public double Kelvin { get { return (CelsiusToKelvin(Celsius)); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static TemperatureMeasurement None = new TemperatureMeasurement(double.NaN);
 #else
 		public static TemperatureMeasurement None = new TemperatureMeasurement();
@@ -105,7 +105,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new TemperatureMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static TemperatureMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? TemperatureMeasurement.None;

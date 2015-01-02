@@ -51,7 +51,7 @@ namespace jaytwo.NetMF.UnitsLib
 			}
 			else
 			{
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 				return MeasurementHelpers.AreDoublesEqual(a.BasicUnits, b.BasicUnits);
 #else
 				return (a.HasValue == b.HasValue) && MeasurementHelpers.AreDoublesEqual(a.BasicUnits, b.BasicUnits);
@@ -82,7 +82,7 @@ namespace jaytwo.NetMF.UnitsLib
 
 		public static int GetHashCode(IOverloadedMeasurement value)
 		{
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 			return value.BasicUnits.GetHashCode();
 #else
 			return value.HasValue.GetHashCode() + value.BasicUnits.GetHashCode();

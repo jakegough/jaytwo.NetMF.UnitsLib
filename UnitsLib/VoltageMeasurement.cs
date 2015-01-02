@@ -36,7 +36,7 @@ namespace jaytwo.NetMF.UnitsLib
 
 		public double Millivolts { get { return DoubleMetricPrefixUtility.ToMilli(Volts); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static VoltageMeasurement None = new VoltageMeasurement(double.NaN);
 #else
 		public static VoltageMeasurement None = new VoltageMeasurement();
@@ -74,7 +74,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new VoltageMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static VoltageMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? VoltageMeasurement.None;

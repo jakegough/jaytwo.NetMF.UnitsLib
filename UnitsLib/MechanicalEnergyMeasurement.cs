@@ -50,7 +50,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double FootPounds { get { return (NewtonMeters / WeightMeasurement.NEWTONS_PER_POUND / LengthMeasurement.METERS_PER_FOOT); } }
 		public double InchPounds { get { return (FootPounds * LengthMeasurement.INCHES_PER_FOOT); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static MechanicalEnergyMeasurement None = new MechanicalEnergyMeasurement(double.NaN);
 #else
 		public static MechanicalEnergyMeasurement None = new MechanicalEnergyMeasurement();
@@ -88,7 +88,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new MechanicalEnergyMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static MechanicalEnergyMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? MechanicalEnergyMeasurement.None;

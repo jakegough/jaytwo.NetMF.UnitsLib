@@ -84,7 +84,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double Atm { get { return (Bar / BAR_PER_ATM); } }
 		public double KgCm2 { get { return (Bar * KGCM2_PER_BAR); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static PressureMeasurement None = new PressureMeasurement(double.NaN);
 #else
 		public static PressureMeasurement None = new PressureMeasurement();
@@ -122,7 +122,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new PressureMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static PressureMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? PressureMeasurement.None;

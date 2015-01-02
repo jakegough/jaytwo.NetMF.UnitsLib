@@ -49,7 +49,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double CubicInches { get { return (Gallons * CUBIC_INCHES_PER_GALLON); } }
 		public double Ounces { get { return (Gallons * OUNCES_PER_GALLON); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static VolumeMeasurement None = new VolumeMeasurement(double.NaN);
 #else
 		public static VolumeMeasurement None = new VolumeMeasurement();
@@ -87,7 +87,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new VolumeMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static VolumeMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? VolumeMeasurement.None;

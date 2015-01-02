@@ -75,6 +75,11 @@ namespace jaytwo.NetMF.UnitsLib
 		public double SquareMiles { get { return (SquareFeet / SQ_FEET_PER_SQ_MILE); } }
 		public double Acres { get { return (SquareFeet / SQ_FEET_PER_ACRE); } }
 
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
+		public static AreaMeasurement None = new AreaMeasurement(double.NaN);
+#else
+		public static AreaMeasurement None = new AreaMeasurement();
+#endif
 		public static AreaMeasurement Zero = new AreaMeasurement(0);
 		public static AreaMeasurement Min = new AreaMeasurement(double.NegativeInfinity);
 		public static AreaMeasurement Max = new AreaMeasurement(double.PositiveInfinity);
@@ -104,9 +109,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new AreaMeasurement(BasicUnits - value.BasicUnits);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
-		public static AreaMeasurement None = new AreaMeasurement(double.NaN);
-
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static AreaMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? AreaMeasurement.None;

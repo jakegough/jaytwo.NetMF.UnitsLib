@@ -74,7 +74,7 @@ namespace jaytwo.NetMF.UnitsLib
 		public double Tons { get { return (Pounds / 2000); } }
 		public double Grains { get { return (Pounds * 7000); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static WeightMeasurement None = new WeightMeasurement(double.NaN);
 #else
 		public static WeightMeasurement None = new WeightMeasurement();
@@ -112,7 +112,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new WeightMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static WeightMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? WeightMeasurement.None;

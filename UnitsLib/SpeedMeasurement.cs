@@ -31,7 +31,7 @@ namespace jaytwo.NetMF.UnitsLib
 
 		public double MilesPerHour { get { return (KilometersPerHour / LengthMeasurement.KILOMETERS_PER_MILE); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static SpeedMeasurement None = new SpeedMeasurement(double.NaN);
 #else
 		public static SpeedMeasurement None = new SpeedMeasurement();
@@ -65,7 +65,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new SpeedMeasurement(BasicUnits - value.BasicUnits);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static SpeedMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? SpeedMeasurement.None;

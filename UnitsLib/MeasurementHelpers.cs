@@ -4,7 +4,7 @@ namespace jaytwo.NetMF.UnitsLib
 {
 	public static class MeasurementHelpers
 	{
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static bool AreDoublesEqual(double a, double b)
 		{
 			return (double.IsNegativeInfinity(a) && double.IsNegativeInfinity(b))

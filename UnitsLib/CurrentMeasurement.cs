@@ -36,7 +36,7 @@ namespace jaytwo.NetMF.UnitsLib
 
 		public double Milliamps { get { return DoubleMetricPrefixUtility.ToMilli(Amps); } }
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static CurrentMeasurement None = new CurrentMeasurement(double.NaN);
 #else
 		public static CurrentMeasurement None = new CurrentMeasurement();
@@ -75,7 +75,7 @@ namespace jaytwo.NetMF.UnitsLib
 			return new CurrentMeasurement(result);
 		}
 
-#if MF_FRAMEWORK_VERSION_V4_2
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static CurrentMeasurement Parse(string value)
 		{
 			return TryParse(value) ?? CurrentMeasurement.None;
