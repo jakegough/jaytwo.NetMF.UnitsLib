@@ -25,7 +25,7 @@ namespace jaytwo.NetMF.UnitsLib
 		{
 		}
 
-#if !MF_FRAMEWORK_VERSION_V4_2
+#if MF_FRAMEWORK_VERSION_V3_0 || MF_FRAMEWORK_VERSION_V4_0 || MF_FRAMEWORK_VERSION_V4_1
 		private CurrentMeasurement()
 			: base()
 		{

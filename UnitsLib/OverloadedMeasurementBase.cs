@@ -4,7 +4,7 @@ namespace jaytwo.NetMF.UnitsLib
 {
 	public abstract class OverloadedMeasurementBase : IOverloadedMeasurement
 	{
-#if !MF_FRAMEWORK_VERSION_V4_2
+#if MF_FRAMEWORK_VERSION_V3_0 || MF_FRAMEWORK_VERSION_V4_0 || MF_FRAMEWORK_VERSION_V4_1
 		private bool _HasValue;
 		public bool HasValue
 		{
@@ -27,12 +27,12 @@ namespace jaytwo.NetMF.UnitsLib
 		protected OverloadedMeasurementBase(double baseUnits)
 		{
 			_BasicUnits = baseUnits;
-#if !MF_FRAMEWORK_VERSION_V4_2
+#if MF_FRAMEWORK_VERSION_V3_0 || MF_FRAMEWORK_VERSION_V4_0 || MF_FRAMEWORK_VERSION_V4_1
 			_HasValue = true;
 #endif
 		}
 
-#if !MF_FRAMEWORK_VERSION_V4_2
+#if MF_FRAMEWORK_VERSION_V3_0 || MF_FRAMEWORK_VERSION_V4_0 || MF_FRAMEWORK_VERSION_V4_1
 		protected OverloadedMeasurementBase()
 		{
 			_HasValue = false;

@@ -44,7 +44,7 @@ namespace jaytwo.NetMF.UnitsLib
 		{
 		}
 
-#if !MF_FRAMEWORK_VERSION_V4_2
+#if MF_FRAMEWORK_VERSION_V3_0 || MF_FRAMEWORK_VERSION_V4_0 || MF_FRAMEWORK_VERSION_V4_1
 		private FrequencyMeasurement()
 			: base()
 		{
@@ -57,12 +57,11 @@ namespace jaytwo.NetMF.UnitsLib
 		public double Ghz { get { return DoubleMetricPrefixUtility.ToGiga(Hz); } }
 		public double RPM { get { return Hz * 60; } }
 
-#if !MF_FRAMEWORK_VERSION_V4_2
-		public static FrequencyMeasurement None = new FrequencyMeasurement();
-#else
+#if !MF_FRAMEWORK_VERSION_V3_0 && !MF_FRAMEWORK_VERSION_V4_0 && !MF_FRAMEWORK_VERSION_V4_1
 		public static FrequencyMeasurement None = new FrequencyMeasurement(double.NaN);
+#else
+		public static FrequencyMeasurement None = new FrequencyMeasurement();
 #endif
-
 		public static FrequencyMeasurement Zero = new FrequencyMeasurement(0);
 		public static FrequencyMeasurement Min = new FrequencyMeasurement(double.NegativeInfinity);
 		public static FrequencyMeasurement Max = new FrequencyMeasurement(double.PositiveInfinity);
