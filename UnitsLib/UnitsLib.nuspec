@@ -17,10 +17,10 @@
    <file src="bin\nuget\netmf30\$id$.*" target="lib/netmf30/" />
    <file src="bin\nuget\netmf40\$id$.*" target="lib/netmf40/" />
    <file src="bin\nuget\netmf41\$id$.*" target="lib/netmf41/" />
-   <file src="bin\nuget\netmf41\le\$id$.*" target="lib/netmf41/le/" />
-   <file src="bin\nuget\netmf41\be\$id$.*" target="lib/netmf41/be/" />
+   <file src="bin\nuget\netmf41\le\$id$.*" target="lib/netmf41/le/" exclude="**\*.dll;**\*.pdb" />
+   <file src="bin\nuget\netmf41\be\$id$.*" target="lib/netmf41/be/" exclude="**\*.dll;**\*.pdb" />
    <file src="bin\nuget\netmf42\$id$.*" target="lib/netmf42/" />
-   <file src="bin\nuget\netmf42\le\$id$.*" target="lib/netmf42/le/" />
-   <file src="bin\nuget\netmf42\be\$id$.*" target="lib/netmf42/be/" />
+   <file src="bin\nuget\netmf42\le\$id$.*" target="lib/netmf42/le/" exclude="**\*.dll;**\*.pdb" />
+   <file src="bin\nuget\netmf42\be\$id$.*" target="lib/netmf42/be/" exclude="**\*.dll;**\*.pdb" />
   </files>
 </package>
