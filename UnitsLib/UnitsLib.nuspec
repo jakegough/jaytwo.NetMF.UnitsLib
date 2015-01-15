@@ -3,7 +3,7 @@
   <metadata>
     <id>jaytwo.NetMF.UnitsLib</id>
     <version>$version$</version>
-    <description>.NET Micro Framework library to simplify handling unit (length, weight, volume, energy, etc.)</description>
+    <description>.NET Micro Framework library to simplify handling units (length, weight, volume, energy, etc.)</description>
     <authors>Jake Gough</authors>
     <projectUrl>https://github.com/jakegough/jaytwo.NetMF.UnitsLib/</projectUrl>
     <licenseUrl>https://raw.githubusercontent.com/jakegough/jaytwo.NetMF.UnitsLib/master/LICENSE</licenseUrl>
